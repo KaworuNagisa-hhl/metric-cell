@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "metric_cell",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

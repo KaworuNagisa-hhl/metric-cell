@@ -1,0 +1,84 @@
+# metric-cell
+
+`metric-cell` 是一个 OpenHarmony/HarmonyOS ArkUI like-ios 指标单元组件，适合展示完成率、数量、状态分值和轻量统计。默认是黑色优先的小尺寸纯色毛玻璃胶囊，可自定义颜色、宽高、圆角、边框、内边距和字号。
+
+## 实际运行效果
+
+下面展示指标单元在默认和自定义宽高状态下的毛玻璃效果：
+
+![metric cell preview](https://cdn.jsdelivr.net/gh/KaworuNagisa-hhl/metric-cell@main/docs/metric-cell-preview.gif)
+
+## 安装
+
+```bash
+ohpm install metric-cell
+```
+
+本地源码依赖：
+
+```json5
+{
+  "dependencies": {
+    "metric-cell": "file:../metric-cell",
+    "theme": "file:../theme"
+  }
+}
+```
+
+## 正常使用样式
+
+```ts
+import { SwiftUIMetricCell } from 'metric-cell'
+import { SwiftUITone } from 'theme'
+
+@Component
+struct CompletionMetric {
+  build() {
+    SwiftUIMetricCell({
+      tone: SwiftUITone.GlassBlack,
+      item: {
+        title: '完成率',
+        value: '82%',
+        icon: 'T',
+        color: '#141414'
+      }
+    })
+  }
+}
+```
+
+## 自定义品牌样式
+
+```ts
+SwiftUIMetricCell({
+  item: { title: '同步记录', value: '128', icon: 'R', color: '#141414' },
+  componentWidth: 180,
+  componentHeight: 42,
+  fillColor: '#E6111111',
+  tintColor: '#1FFFFFFF',
+  customBorderColor: '#33FFFFFF',
+  customBorderWidth: 1,
+  cornerRadius: 8,
+  horizontalPadding: 12,
+  valueFontSize: 15,
+  titleFontSize: 11
+})
+```
+
+## API
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `item` | `SwiftUIMetricItem` | 空指标 | 指标标题、数值、图标和颜色 |
+| `usesContrastFill` | `boolean` | `false` | 是否降低强调色填充强度 |
+| `tone` | `SwiftUITone` | `GlassBlack` | 默认 like-ios 黑色毛玻璃色调 |
+| `componentWidth` | `Length` | `'100%'` | 单元宽度 |
+| `componentHeight` | `Length` | `34` | 单元高度 |
+| `fillColor` | `ResourceColor` | `'#E6111111'` | 黑色毛玻璃底色 |
+| `tintColor` | `ResourceColor` | 自动色调 | 渐变叠色 |
+| `customBorderColor` | `ResourceColor` | 自动边框 | 自定义边框色 |
+| `customBorderWidth` | `number` | `1` | 边框宽度 |
+| `cornerRadius` | `number` | `12` | 圆角 |
+| `horizontalPadding` | `number` | `8` | 横向内边距 |
+| `valueFontSize` | `number` | `14` | 数值字号 |
+| `titleFontSize` | `number` | `10` | 标题字号 |
