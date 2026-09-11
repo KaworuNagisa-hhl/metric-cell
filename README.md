@@ -14,16 +14,6 @@
 ohpm install metric-cell
 ```
 
-本地源码依赖：
-
-```json5
-{
-  "dependencies": {
-    "metric-cell": "file:../metric-cell",
-    "theme": "file:../theme"
-  }
-}
-```
 
 ## 正常使用样式
 
